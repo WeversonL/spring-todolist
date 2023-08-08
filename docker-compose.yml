@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+
+  todolist-service:
+    image: weversonlemos/spring-todolist:latest
+    container_name: todolist-service
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - tdl-nt
+    volumes:
+      - h2_data:/app
+    mem_limit: 512m
+
+volumes:
+  h2_data:
+
+networks:
+  tdl-nt:
+    driver: bridge

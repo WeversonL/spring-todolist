@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: todolist
+  datasource:
+    url: jdbc:h2:file:./todos
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  h2:
+    console:
+      enabled: false
+
+logging:
+  level:
+    '[com.zaxxer.hikari]': OFF
+    '[org.hibernate]': OFF
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  show-actuator: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - metrics
+
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+  info:
+    env:
+      enabled: true
+
+info:
+  app: todolist
+  developer: weversonl
+  github: https://github.com/WeversonL/spring-todolist
+  linkedin: https://www.linkedin.com/in/weversonlemos/
